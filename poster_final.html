@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang='fr'>
+
+<head>
+  <meta http-equiv='Content-Type' content='text/html; charset=UTF-8'>
+  <meta charset='utf-8'>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <meta name='description' content=''>
+
+  <title>Sprint Exoplanètes ComSciCon-Qc</title>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+  <!-- scripts -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script>
+    $('[data-toggle="modal"]').tooltip({
+        trigger : 'hover'
+    });
+  </script>
+
+  <style>
+    .supsub {
+    display: inline-block;
+    }
+
+    .supsub sup,
+    .supsub sub {
+        position: relative;
+        display: block;
+        font-size: .7em;
+        line-height: 1.1;
+    }
+
+    .tooltip {
+      font-size: 16px;
+    }
+
+    .supsub sub {
+        top: .2em;
+    }
+    .supsub sup {
+        top: .1em;
+    }
+    /* CSS Style */
+    .click-img {
+      cursor: pointer;
+    }
+
+    .click-img:hover {
+      opacity: 0.5;
+    }
+
+    .carousel-caption {
+      position: relative;
+      left: auto;
+      right: auto;
+      color: #000000;
+      text-shadow: none;
+    }
+
+    .carousel-control {
+      position: absolute;
+      top: 500px;
+      bottom: 0;
+      left: 0;
+      width: 8%;  /* change this value to required width */
+      font-size: 20px;
+      color: #fff;
+      text-align: center;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, .6);
+      background: none !important;
+      color: #000 !important;
+      filter: alpha(opacity=50);
+      opacity: .5;
+    }
+
+    .modal {
+      text-align: center;
+    }
+
+    @media screen and (min-width: 768px) {
+      .modal:before {
+        display: inline-block;
+        vertical-align: middle;
+        content: " ";
+        height: 100%;
+      }
+    }
+
+    .panel-default {
+      border: 0;
+    }
+
+    .modal-content {
+      border: 0;
+    }
+
+
+    .panel-body {
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .modal-dialog {
+      display: inline-block;
+      text-align: left;
+    }
+
+    .modal-header {
+      background-color: #404040;
+      color: #ffffff;
+      border-radius: 4px 4px 0 0;
+    }
+
+    .modal-text {
+      vertical-align: top;
+      margin-top: 200px;
+    }
+
+    .modal-hist {
+      vertical-align: middle;
+      width: 48%;
+      height: auto;
+    }
+
+    .modal-plot {
+      vertical-align: middle;
+      width: 70%;
+      height: auto;
+    }
+
+    .caption {
+      font-style: italic;
+      font-size: 14px;
+    }
+
+    .caption-mod {
+      font-style: italic;
+      font-size: 20px;
+    }
+
+    .panel-custom-title {
+      border: 0;
+      border-style: none;
+      box-shadow: none;
+      margin-left: 0;
+      margin-right: 0;
+      background: none;
+      color: #ffffff;
+    }
+
+    .panel-user-tool {
+      border: 0;
+      border-style: none;
+      box-shadow: none;
+      margin-left: 0;
+      margin-right: 0;
+      background: none;
+    }
+
+    .verticalhorizontal {
+        text-align: center;
+        vertical-align: middle;
+    }
+
+    .carousel-fade .carousel-inner .item {
+      opacity: 0;
+      transition-property: opacity;
+    }
+
+    .carousel-fade .carousel-inner .active {
+      opacity: 1;
+    }
+
+    .carousel-fade .carousel-inner .active.left,
+    .carousel-fade .carousel-inner .active.right {
+      left: 0;
+      opacity: 0;
+      z-index: 1;
+    }
+
+    .carousel-fade .carousel-inner .next.left,
+    .carousel-fade .carousel-inner .prev.right {
+      opacity: 1;
+    }
+
+    .panel > .panel-heading {
+      background-color: #404040;
+      color: #ffffff;
+      padding-bottom: 0;
+    }
+
+    .close-dark {
+      color: #ffffff;
+    }
+
+    .btn.btn-info {
+      color: #ffffffffffff;
+      background-color: #404040;
+      border-color: #404040;
+    }
+    .btn.btn-info.focus,
+    .btn.btn-info:focus {
+      color: #ffffffffffff;
+      background-color: #404040;
+      border-color: #404040;
+      outline: none;
+      box-shadow: none;
+    }
+    .btn.btn-info:hover {
+      color: #ffffff;
+      background-color: #404040;
+      border-color: #404040;
+      outline: none;
+      box-shadow: none;
+      opacity: 0.7;
+    }
+    .btn.btn-info.active,
+    .btn.btn-info:active {
+      color: #ffffff;
+      background-color: #404040;
+      border-color: #404040;
+      outline: none;
+    }
+    .btn.btn-info.active.focus,
+    .btn.btn-info.active:focus,
+    .btn.btn-info.active:hover,
+    .btn.btn-info:active.focus,
+    .btn.btn-info:active:focus,
+    .btn.btn-info:active:hover {
+      color: #ffffff;
+      background-color: #404040;
+      border-color: #404040;
+      outline: none;
+      box-shadow: none;
+    }
+
+    body {
+      background-image: linear-gradient(#6388CF, #ffffff);
+    }
+
+    h1 {
+      font-size: 30px;
+    }
+
+    h3 {
+      font-size: 22px;
+      margin-top: 0px;
+    }
+
+    p {
+      font-size: 16px;
+    }
+
+    ul {
+      margin: 0px;
+      padding: 0px;
+      padding-left: 20px;
+      font-size: 16px;
+      line-height: 1.1;
+    }
+
+    body {
+      background-image: linear-gradient(#6388CF, #ffffff);
+    }
+
+    h1 {
+      font-size: 30px;
+    }
+
+    h3 {
+      font-size: 22px;
+      margin-top: 0px;
+    }
+
+    p {
+      font-size: 16px;
+    }
+
+    ul {
+      margin: 0px;
+      padding: 0px;
+      padding-left: 20px;
+      font-size: 16px;
+      line-height: 1.1;
+    }
+    li {
+      margin: 0 0 8px 0;
+    }
+
+    a {
+      color:green;
+    }
+
+    .mod-link {
+      color: #3366BB;
+    }
+
+  </style>
+</head>
+
+<body>
+
+<!-- entire poster in a big container -->
+<div class='container-fluid' style='margin-top:20px'>
+
+  <!-- title row -->
+  <div class='row'>
+    <div class='col-sm-1'>
+      <!-- logo  carousel top left-->
+      <div class='panel panel-custom-title'>
+        <div id="logoCarousel" class="carousel slide carousel-fade" data-ride="carousel">
+          <!-- Wrapper for slides -->
+          <div class="carousel-inner">
+            <div class="item active" data-interval="1000">
+              <img src="https://raw.githubusercontent.com/vandalt/exo3-figures/master/header/logo_notext.png" width="100%" height="auto" alt="iREx">
+            </div>
+            <div class="item verticalhorizontal" data-interval="9000">
+              <img src="https://raw.githubusercontent.com/vandalt/exo3-figures/master/header/udem_logo_sq.png" width="100%" height="auto" alt="Université de Montréal">
+            </div>
+            <div class="item" data-interval="1000">
+              <img src="https://raw.githubusercontent.com/vandalt/exo3-figures/master/header/ipag_logo_sq.png" width="100%" height="auto" alt="IPAG">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class='col-sm-10'>
+      <!-- title and authors in middle-->
+      <div class='panel panel-custom-title'>
+          <h1 class='text-center'>Chasseurs d’exoplanètes: à la recherche de planètes habitables avec les élèves du secondaire​</h1>
+          <p class='text-center' style="font-size: 18px;">Caroline Piaulet et Thomas Vandal</p>
+          <p class='text-center' style="font-size: 18px;">Avec le Coeur des sciences de l'Université du Québec à Montréal</p>
+      </div>
+    </div>
+    <div class='col-sm-1'>
+      <!-- author photo top right -->
+      <div class='panel panel-custom-title'>
+        <img src="https://raw.githubusercontent.com/vandalt/exo3-figures/master/header/photo_thomas_vandal.jpg" width="100%" height="auto" class="center"/>
+      </div>
+    </div>
+  </div>
+
+  <div class='row'>
+    <div class='col-sm-1'>
+      <!-- logo  carousel top left-->
+      <div class='panel panel-custom-title'>
+        <div id="logoCarousel" class="carousel slide carousel-fade" data-ride="carousel">
+          <!-- Wrapper for slides -->
+          <div class="carousel-inner">
+            <div class="item active">
+              <img src="https://raw.githubusercontent.com/vandalt/exo3-figures/master/header/logo_notext.png" width="100%" height="auto" alt="iREx">
+            </div>
+            <div class="item verticalhorizontal">
+              <img src="https://raw.githubusercontent.com/vandalt/exo3-figures/master/header/udem_logo_sq.png" width="100%" height="auto" alt="Université de Montréal">
+            </div>
+            <div class="item">
+              <img src="https://raw.githubusercontent.com/vandalt/exo3-figures/master/header/ipag_logo_sq.png" width="100%" height="auto" alt="IPAG">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class='col-sm-10'>
+      <div class='panel panel-default'>
+        <div class='panel-body'>
+          <!-- Abstract -->
+          <p>
+
+          Les <em>sprints</em> sont des ateliers participatifs offerts aux
+          élèves du secondaire. Cette initiative du Coeur des sciences de
+          l’Université du Québec à Montréal vise à engager les jeunes dans la
+          culture scientifique en leur faisant vivre les différentes étapes du
+          processus de recherche, mais en une seule période de cours. Lors de
+          chaque <em>sprint</em>, les élèves ont la chance de se familiariser
+          avec un nouveau sujet de recherche. Ils effectuent ensuite
+          différentes analyses pour répondre à une question de recherche,
+          accompagnés par un.e étudiant.e au doctorat. Le sprint <em>Chasseurs
+          d'exoplanètes</em> permet aux élèves de se familiariser avec les
+          outils utilisés pour étudier les exoplanetes. Ils tentent ensuite de
+          déterminer si l'exoplanète K2-18 b pourrait potentiellement abriter de
+          la vie.
+
+          </p>
+        </div>
+    </div>
+  </div>
+  <div class='col-sm-1'>
+    <!-- author photo top right -->
+    <div class='panel panel-custom-title'>
+      <img src="https://raw.githubusercontent.com/vandalt/exo3-figures/master/header/photo_thomas_vandal.jpg" width="100%" height="auto" class="center"/>
+    </div>
+  </div>
+</div>
+
+<div class='row'>
+  <div class='col-sm-3'>
+
+    <div class='panel panel-default'>
+      <div class="panel-heading">
+        <h3>Les exoplanètes</h3>
+      </div>
+      <div class='panel-body'>
+        <!-- System info -->
+        <p>Au début de la présentation, nous présentons des notions de bases liées aux exoplanètes pour que les élèves puissent les réutiliser dans leur démarche de recherche:</p>
+        <ul>
+          <li>Définition de ce qu'est une exoplanète.</li>
+          <li>Présentation rapide du système solaire, que les élèves connaissent déjà en général.</li>
+          <li>Discussion sur la grande variété d'exoplanètes (plus de 4000 ont déjà été détectées !).</li>
+          <li>Présentation des principales méthodes permettant de détecter les exoplanètes</li>
+        </ul>
+        <br>
+        <!-- Modal -->
+        <div id="gaussModal" class="modal fade" role="dialog" tabindex="-1">
+          <div class="modal-dialog modal-hist">
+            <!-- Modal content-->
+            <div class="modal-content">
+              <div class="modal-body">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <p><img src='./images/methodes_detection.png' width='100%' height='auto'></p>
+                <p class='caption-mod'><em>Diapositive utilisée pour présenter la détection d'exoplanètes.</em></p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p><img class="click-img" data-toggle="modal" data-target="#gaussModal" src='./images/methodes_detection.png' width='100%' height='auto'></p>
+        <p class='caption'><em>Diapositive utilisée pour présenter la détection d'exoplanètes.</em></p>
+      </div>
+    </div>
+
+    </div>
+    <div class='col-sm-3'>
+
+      <div class='panel panel-default'>
+        <div class="panel-heading">
+          <h3>K2-18 b: une planète habitable?</h3>
+        </div>
+        <div class='panel-body'>
+          <p>Le but du projet est d'en apprendre plus sur l'exoplanète K2-18 b. Les élèves vont donc tenter de savoir si cette planète pourrait être habitable.</p>
+          <ul>
+            <li>Présentation de la planète K2-18 b et de son étoile, K2-18, située à 124 années-lumières du Soleil.</li>
+            <li>Discussion sur les conditions nécessaires à la vie sur une planète. En se basant sur la Terre les élèves trouvent souvent la majorité des éléments recherchés !</li>
+            <li>Présentation de la liste de critère que les élèves devront vérifier pour savoir si K2-18 b pourrait être habitable.</li>
+          </ul>
+        <br>
+        <!-- Modal -->
+        <div id="gaussModal" class="modal fade" role="dialog" tabindex="-1">
+          <div class="modal-dialog modal-hist">
+            <!-- Modal content-->
+            <div class="modal-content">
+              <div class="modal-body">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <p><img src='./images/methodes_detection.png' width='100%' height='auto'></p>
+                <p class='caption-mod'><em>Diapositive présentant différentes méthodes de détections d'exoplanètes</em></p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p><img class="click-img" data-toggle="modal" data-target="#gaussModal" src='./images/methodes_detection.png' width='100%' height='auto'></p>
+        <p class='caption'><em>Exemple de diapositive utilisée pour présenter la détection d'exoplanètes.</em></p>
+        </div>
+      </div>
+
+    </div>
+    <div class='col-sm-3'>
+
+      <div class='panel panel-default'>
+        <div class="panel-heading">
+          <h3>Analyser de vraies observations</h3>
+        </div>
+        <div class='panel-body'>
+          <p>Pour répondre à la question de recherche, les élèves analysent des donnés réelles obtenues avec différents télélescopes.</p>
+          <ul>
+            <li>Analyse de donné</li>
+            <li>Discussion sur les conditions nécessaires à la vie sur une planète. En se basant sur la Terre les élèves trouvent souvent la majorité des éléments recherchés !</li>
+            <li>Présentation de la liste de critère que les élèves devront vérifier pour savoir si K2-18 b pourrait être habitable.</li>
+          </ul>
+        <br>
+        <!-- Modal -->
+        <div id="gaussModal" class="modal fade" role="dialog" tabindex="-1">
+          <div class="modal-dialog modal-hist">
+            <!-- Modal content-->
+            <div class="modal-content">
+              <div class="modal-body">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <p><img src='./images/methodes_detection.png' width='100%' height='auto'></p>
+                <p class='caption-mod'><em>Diapositive présentant différentes méthodes de détections d'exoplanètes</em></p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p><img class="click-img" data-toggle="modal" data-target="#gaussModal" src='./images/methodes_detection.png' width='100%' height='auto'></p>
+        <p class='caption'><em>Exemple de diapositive utilisée pour présenter la détection d'exoplanètes.</em></p>
+        </div>
+      </div>
+
+    </div>
+    <div class='col-sm-3'>
+
+      <div class='panel panel-default'>
+        <div class="panel-heading">
+          <h3>K2-18 b: une planète habitable?</h3>
+        </div>
+        <div class='panel-body'>
+          <p>Le but du projet est d'en apprendre plus sur l'exoplanète K2-18 b. Les élèves vont donc tenter de savoir si cette planète pourrait être habitable.</p>
+          <ul>
+            <li>Présentation de la planète K2-18 b et de son étoile, K2-18, située à 124 années-lumières du Soleil.</li>
+            <li>Discussion sur les conditions nécessaires à la vie sur une planète. En se basant sur la Terre les élèves trouvent souvent la majorité des éléments recherchés !</li>
+            <li>Présentation de la liste de critère que les élèves devront vérifier pour savoir si K2-18 b pourrait être habitable.</li>
+          </ul>
+        <br>
+        <!-- Modal -->
+        <div id="gaussModal" class="modal fade" role="dialog" tabindex="-1">
+          <div class="modal-dialog modal-hist">
+            <!-- Modal content-->
+            <div class="modal-content">
+              <div class="modal-body">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <p><img src='./images/methodes_detection.png' width='100%' height='auto'></p>
+                <p class='caption-mod'><em>Diapositive présentant différentes méthodes de détections d'exoplanètes</em></p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p><img class="click-img" data-toggle="modal" data-target="#gaussModal" src='./images/methodes_detection.png' width='100%' height='auto'></p>
+        <p class='caption'><em>Exemple de diapositive utilisée pour présenter la détection d'exoplanètes.</em></p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12 text-right">
+      <div class='panel panel-user-tool'>
+
+      <!-- Trigger the modal with a button -->
+      <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#acks">Remerciements</button>
+
+
+      <!-- Modal -->
+      <div id="acks" class="modal fade" role="dialog" tabindex="-1">
+        <div class="modal-dialog">
+
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close close-dark" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">Remerciements</h4>
+            </div>
+            <div class="modal-body">
+              <p>
+              Merci à Stephan Chaix, Marie-Claude Nicole et Jasmine Pigeon-Bourque pour leur aide précieuse !​
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+
+      </div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
