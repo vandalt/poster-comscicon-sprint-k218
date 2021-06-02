@@ -134,7 +134,7 @@
 
     .caption {
       font-style: italic;
-      font-size: 14px;
+      font-size: 16px;
     }
 
     .caption-mod {
@@ -182,9 +182,9 @@
       z-index: 1;
     }
 
-    .carousel-fade .carousel-inner .next.left,
-    .carousel-fade .carousel-inner .prev.right {
-      opacity: 1;
+    .carousel-inner > .item > img {
+      width: auto;
+      max-height: 125px;
     }
 
     .panel > .panel-heading {
@@ -252,14 +252,14 @@
     }
 
     p {
-      font-size: 16px;
+      font-size: 18px;
     }
 
     ul {
       margin: 0px;
       padding: 0px;
       padding-left: 20px;
-      font-size: 16px;
+      font-size: 18px;
       line-height: 1.1;
     }
 
@@ -276,17 +276,6 @@
       margin-top: 0px;
     }
 
-    p {
-      font-size: 16px;
-    }
-
-    ul {
-      margin: 0px;
-      padding: 0px;
-      padding-left: 20px;
-      font-size: 16px;
-      line-height: 1.1;
-    }
     li {
       margin: 0 0 8px 0;
     }
@@ -310,22 +299,8 @@
   <!-- title row -->
   <div class='row'>
     <div class='col-sm-1'>
-      <!-- logo  carousel top left-->
       <div class='panel panel-custom-title'>
-        <div id="logoCarousel" class="carousel slide carousel-fade" data-ride="carousel">
-          <!-- Wrapper for slides -->
-          <div class="carousel-inner">
-            <div class="item active" data-interval="1000">
-              <img src="https://raw.githubusercontent.com/vandalt/exo3-figures/master/header/logo_notext.png" width="100%" height="auto" alt="iREx">
-            </div>
-            <div class="item verticalhorizontal" data-interval="9000">
-              <img src="https://raw.githubusercontent.com/vandalt/exo3-figures/master/header/udem_logo_sq.png" width="100%" height="auto" alt="Université de Montréal">
-            </div>
-            <div class="item" data-interval="1000">
-              <img src="https://raw.githubusercontent.com/vandalt/exo3-figures/master/header/ipag_logo_sq.png" width="100%" height="auto" alt="IPAG">
-            </div>
-          </div>
-        </div>
+        <img src="./images/coeur_sciences.jpg" width="auto" height="125px" class="center"/>
       </div>
     </div>
     <div class='col-sm-10'>
@@ -337,9 +312,18 @@
       </div>
     </div>
     <div class='col-sm-1'>
-      <!-- author photo top right -->
       <div class='panel panel-custom-title'>
-        <img src="https://raw.githubusercontent.com/vandalt/exo3-figures/master/header/photo_thomas_vandal.jpg" width="100%" height="auto" class="center"/>
+        <div id="photoCarousel" class="carousel slide carousel-fade" data-ride="carousel">
+          <!-- Wrapper for slides -->
+          <div class="carousel-inner">
+            <div class="item active">
+              <img src="./images/caroline.png" alt="Caroline Piaulet">
+            </div>
+            <div class="item verticalhorizontal">
+              <img src="./images/thomas.jpg" alt="Thomas Vandal">
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -352,13 +336,22 @@
           <!-- Wrapper for slides -->
           <div class="carousel-inner">
             <div class="item active">
-              <img src="https://raw.githubusercontent.com/vandalt/exo3-figures/master/header/logo_notext.png" width="100%" height="auto" alt="iREx">
+              <img src="./images/irex.png" width="100%" height="auto" alt="iREx">
             </div>
             <div class="item verticalhorizontal">
-              <img src="https://raw.githubusercontent.com/vandalt/exo3-figures/master/header/udem_logo_sq.png" width="100%" height="auto" alt="Université de Montréal">
+              <img src="./images/udem.jpg" width="100%" height="auto" alt="Université de Montréal">
             </div>
-            <div class="item">
-              <img src="https://raw.githubusercontent.com/vandalt/exo3-figures/master/header/ipag_logo_sq.png" width="100%" height="auto" alt="IPAG">
+            <div class="item verticalhorizontal">
+              <img src="./images/aestq.jpg" width="100%" height="auto" alt="AESTQ">
+            </div>
+            <div class="item verticalhorizontal">
+              <img src="./images/crsng.jpg" width="100%" height="auto" alt="CRSNG">
+            </div>
+            <div class="item verticalhorizontal">
+              <img src="./images/qc.jpg" width="100%" height="auto" alt="Québec">
+            </div>
+            <div class="item verticalhorizontal">
+              <img src="./images/ecole_reseau.jpg" width="100%" height="auto" alt="École en réseau">
             </div>
           </div>
         </div>
@@ -376,7 +369,7 @@
           culture scientifique en leur faisant vivre les différentes étapes du
           processus de recherche, mais en une seule période de cours. Lors de
           chaque <em>sprint</em>, les élèves ont la chance de se familiariser
-          avec un nouveau sujet de recherche. Ils effectuent ensuite
+          avec un nouveau sujet. Ils effectuent ensuite
           différentes analyses pour répondre à une question de recherche,
           accompagnés par un.e étudiant.e au doctorat. Le sprint <em>Chasseurs
           d'exoplanètes</em> permet aux élèves de se familiariser avec les
@@ -391,7 +384,7 @@
   <div class='col-sm-1'>
     <!-- author photo top right -->
     <div class='panel panel-custom-title'>
-      <img src="https://raw.githubusercontent.com/vandalt/exo3-figures/master/header/photo_thomas_vandal.jpg" width="100%" height="auto" class="center"/>
+      <img src="./images/code_qr.png" width="100%" height="100%" class="center"/>
     </div>
   </div>
 </div>
@@ -414,19 +407,19 @@
         </ul>
         <br>
         <!-- Modal -->
-        <div id="gaussModal" class="modal fade" role="dialog" tabindex="-1">
+        <div id="detectionModal" class="modal fade" role="dialog" tabindex="-1">
           <div class="modal-dialog modal-hist">
             <!-- Modal content-->
             <div class="modal-content">
               <div class="modal-body">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <p><img src='./images/methodes_detection.png' width='100%' height='auto'></p>
+                <p><img src='https://raw.githubusercontent.com/vandalt/poster-csq/main/images/methodes_detection.png' width='100%' height='auto'></p>
                 <p class='caption-mod'><em>Diapositive utilisée pour présenter la détection d'exoplanètes.</em></p>
               </div>
             </div>
           </div>
         </div>
-        <p><img class="click-img" data-toggle="modal" data-target="#gaussModal" src='./images/methodes_detection.png' width='100%' height='auto'></p>
+        <p><img class="click-img" data-toggle="modal" data-target="#detectionModal" src='https://raw.githubusercontent.com/vandalt/poster-csq/main/images/methodes_detection.png' width='100%' height='auto'></p>
         <p class='caption'><em>Diapositive utilisée pour présenter la détection d'exoplanètes.</em></p>
       </div>
     </div>
@@ -442,25 +435,25 @@
           <p>Le but du projet est d'en apprendre plus sur l'exoplanète K2-18 b. Les élèves vont donc tenter de savoir si cette planète pourrait être habitable.</p>
           <ul>
             <li>Présentation de la planète K2-18 b et de son étoile, K2-18, située à 124 années-lumières du Soleil.</li>
-            <li>Discussion sur les conditions nécessaires à la vie sur une planète. En se basant sur la Terre les élèves trouvent souvent la majorité des éléments recherchés !</li>
+            <li>Discussion sur les conditions nécessaires à la vie sur une planète. En se basant sur la Terre, les élèves trouvent souvent la majorité des éléments recherchés !</li>
             <li>Présentation de la liste de critère que les élèves devront vérifier pour savoir si K2-18 b pourrait être habitable.</li>
           </ul>
         <br>
         <!-- Modal -->
-        <div id="gaussModal" class="modal fade" role="dialog" tabindex="-1">
+        <div id="critereModal" class="modal fade" role="dialog" tabindex="-1">
           <div class="modal-dialog modal-hist">
             <!-- Modal content-->
             <div class="modal-content">
               <div class="modal-body">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <p><img src='./images/methodes_detection.png' width='100%' height='auto'></p>
-                <p class='caption-mod'><em>Diapositive présentant différentes méthodes de détections d'exoplanètes</em></p>
+                <p><img src='./images/criteres.png' width='100%' height='auto'></p>
+                <p class='caption-mod'><em>Liste de critères que les élèves doivent vérifier durant l'activité</em></p>
               </div>
             </div>
           </div>
         </div>
-        <p><img class="click-img" data-toggle="modal" data-target="#gaussModal" src='./images/methodes_detection.png' width='100%' height='auto'></p>
-        <p class='caption'><em>Exemple de diapositive utilisée pour présenter la détection d'exoplanètes.</em></p>
+        <p><img class="click-img" data-toggle="modal" data-target="#critereModal" src='./images/criteres.png' width='100%' height='auto'></p>
+        <p class='caption'><em>Liste de critères que les élèves doivent vérifier durant l'activité</em></p>
         </div>
       </div>
 
@@ -474,26 +467,26 @@
         <div class='panel-body'>
           <p>Pour répondre à la question de recherche, les élèves analysent des donnés réelles obtenues avec différents télélescopes.</p>
           <ul>
-            <li>Analyse de donné</li>
-            <li>Discussion sur les conditions nécessaires à la vie sur une planète. En se basant sur la Terre les élèves trouvent souvent la majorité des éléments recherchés !</li>
-            <li>Présentation de la liste de critère que les élèves devront vérifier pour savoir si K2-18 b pourrait être habitable.</li>
+              <li>Les données du télescope Kepler permettent de calculer la période orbital de la planète.</li>
+            <li>Encore avec le télescope Kepler, les élèves déterminent le rayon de la planète.</li>
+            <li>Avec les données du télescope Hubble, les élèves peuvent détectent de l'eau dans l'atmosphère de K2-18 b.</li>
           </ul>
         <br>
         <!-- Modal -->
-        <div id="gaussModal" class="modal fade" role="dialog" tabindex="-1">
+        <div id="rayonModal" class="modal fade" role="dialog" tabindex="-1">
           <div class="modal-dialog modal-hist">
             <!-- Modal content-->
             <div class="modal-content">
               <div class="modal-body">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <p><img src='./images/methodes_detection.png' width='100%' height='auto'></p>
-                <p class='caption-mod'><em>Diapositive présentant différentes méthodes de détections d'exoplanètes</em></p>
+                <p><img src='./images/rayon.png' width='100%' height='auto'></p>
+                <p class='caption-mod'><em>Données et modèles permettant aux élèves de calculer le rayon.</em></p>
               </div>
             </div>
           </div>
         </div>
-        <p><img class="click-img" data-toggle="modal" data-target="#gaussModal" src='./images/methodes_detection.png' width='100%' height='auto'></p>
-        <p class='caption'><em>Exemple de diapositive utilisée pour présenter la détection d'exoplanètes.</em></p>
+        <p><img class="click-img" data-toggle="modal" data-target="#rayonModal" src='./images/rayon.png' width='100%' height='auto'></p>
+        <p class='caption'><em>Données et modèles permettant aux élèves de calculer le rayon.</em></p>
         </div>
       </div>
 
@@ -502,30 +495,30 @@
 
       <div class='panel panel-default'>
         <div class="panel-heading">
-          <h3>K2-18 b: une planète habitable?</h3>
+          <h3>Tirer des conclusions</h3>
         </div>
         <div class='panel-body'>
-          <p>Le but du projet est d'en apprendre plus sur l'exoplanète K2-18 b. Les élèves vont donc tenter de savoir si cette planète pourrait être habitable.</p>
+          <p>Une fois l'analyse terminée, les élèves peuvent regrouper l'information pour répondre à la question initiale.</p>
           <ul>
-            <li>Présentation de la planète K2-18 b et de son étoile, K2-18, située à 124 années-lumières du Soleil.</li>
-            <li>Discussion sur les conditions nécessaires à la vie sur une planète. En se basant sur la Terre les élèves trouvent souvent la majorité des éléments recherchés !</li>
-            <li>Présentation de la liste de critère que les élèves devront vérifier pour savoir si K2-18 b pourrait être habitable.</li>
+            <li>On répond à la question: K2-18 est-elle habitable ?</li>
+            <li><b>AJOUTER QQCH ICI</b></li>
+            <li>On discute avec les élèves et on répond à leurs questions plus générales à la fin de l'activité.</li>
           </ul>
         <br>
         <!-- Modal -->
-        <div id="gaussModal" class="modal fade" role="dialog" tabindex="-1">
+        <div id="concluModal" class="modal fade" role="dialog" tabindex="-1">
           <div class="modal-dialog modal-hist">
             <!-- Modal content-->
             <div class="modal-content">
               <div class="modal-body">
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <p><img src='./images/methodes_detection.png' width='100%' height='auto'></p>
+                <p><img src='https://raw.githubusercontent.com/vandalt/poster-csq/main/images/methodes_detection.png' width='100%' height='auto'></p>
                 <p class='caption-mod'><em>Diapositive présentant différentes méthodes de détections d'exoplanètes</em></p>
               </div>
             </div>
           </div>
         </div>
-        <p><img class="click-img" data-toggle="modal" data-target="#gaussModal" src='./images/methodes_detection.png' width='100%' height='auto'></p>
+        <p><img class="click-img" data-toggle="modal" data-target="#concluModal" src='https://raw.githubusercontent.com/vandalt/poster-csq/main/images/methodes_detection.png' width='100%' height='auto'></p>
         <p class='caption'><em>Exemple de diapositive utilisée pour présenter la détection d'exoplanètes.</em></p>
         </div>
       </div>
